@@ -28,3 +28,4 @@ django-cors-headers
 
 # Python3 compatibility
 six
+gunicorn==19.6.0
