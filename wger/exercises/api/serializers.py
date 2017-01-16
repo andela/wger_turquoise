@@ -23,12 +23,25 @@ from wger.exercises.models import (
     Equipment,
     ExerciseComment
 )
+from wger.utils.models import AbstractSubmissionModel
 
 
 class ExerciseSerializer(serializers.ModelSerializer):
     '''
     Exercise serializer
     '''
+
+    class Meta:
+        model = Exercise
+
+
+class ExerciseInfoSerializer(serializers.ModelSerializer):
+    '''
+    Exercise serializer
+    '''
+    language = serializers.CharField(source='language.full_name')
+    category = serializers.CharField(source='category.name')
+
     class Meta:
         model = Exercise
 

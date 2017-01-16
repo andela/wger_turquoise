@@ -16,6 +16,8 @@
 import six
 import logging
 import uuid
+
+from django.contrib.auth.models import User
 from django.core import mail
 
 from django.shortcuts import render, get_object_or_404
@@ -39,7 +41,10 @@ from django.views.generic import (
     CreateView,
     UpdateView
 )
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
+from wger.exercises.api.serializers import ExerciseSerializer
 from wger.manager.models import WorkoutLog
 from wger.exercises.models import (
     Exercise,
@@ -59,7 +64,6 @@ from wger.utils.widgets import (
 )
 from wger.config.models import LanguageConfig
 from wger.weight.helpers import process_log_entries
-
 
 logger = logging.getLogger(__name__)
 
@@ -159,10 +163,9 @@ class ExercisesEditAddView(WgerFormMixin):
     sidebar = 'exercise/form.html'
     title = ugettext_lazy('Add exercise')
     custom_js = 'wgerInitTinymce();'
-    clean_html = ('description', )
+    clean_html = ('description',)
 
     def get_form_class(self):
-
         # Define the exercise form here because only at this point during the request
         # have we access to the currently used language. In other places Django defaults
         # to 'en-us'.
