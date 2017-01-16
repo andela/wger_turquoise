@@ -12,7 +12,8 @@ if __name__ == "__main__":
 
     # If user passed the settings flag ignore the default wger settings
     if not any('--settings' in s for s in sys.argv):
-        setup_django_environment(get_user_config_path('wger_turquoise','settings.py'))
+        #setup_django_environment(get_user_config_path('wger_turquoise','settings.py'))
+        os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings")
 
     # Alternative to above
     # os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings")
