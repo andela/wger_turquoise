@@ -15,6 +15,7 @@
 # You should have received a copy of the GNU Affero General Public License
 
 from rest_framework import serializers
+
 from wger.exercises.models import (
     Muscle,
     Exercise,
@@ -23,24 +24,12 @@ from wger.exercises.models import (
     Equipment,
     ExerciseComment
 )
-from wger.utils.models import AbstractSubmissionModel
 
 
 class ExerciseSerializer(serializers.ModelSerializer):
     '''
     Exercise serializer
     '''
-
-    class Meta:
-        model = Exercise
-
-
-class ExerciseInfoSerializer(serializers.ModelSerializer):
-    '''
-    Exercise serializer
-    '''
-    language = serializers.CharField(source='language.full_name')
-    category = serializers.CharField(source='category.name')
 
     class Meta:
         model = Exercise
@@ -68,6 +57,18 @@ class ExerciseImageSerializer(serializers.ModelSerializer):
     '''
     class Meta:
         model = ExerciseImage
+
+
+class ExerciseInfoSerializer(serializers.ModelSerializer):
+    '''
+    Exercise serializer
+    '''
+    image = ExerciseImageSerializer(source='main_image')
+    description = serializers.StringRelatedField(source='description_clean')
+
+    class Meta:
+        model = Exercise
+        depth = 2
 
 
 class ExerciseCommentSerializer(serializers.ModelSerializer):

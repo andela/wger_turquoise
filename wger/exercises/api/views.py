@@ -79,7 +79,7 @@ class ExerciseViewSet(viewsets.ModelViewSet):
 
 class ExerciseInfoViewSet(viewsets.ReadOnlyModelViewSet):
     '''
-    API endpoint for exercise objects
+    API endpoint for an exercise details
     '''
     queryset = Exercise.objects.all().select_related()
     serializer_class = ExerciseInfoSerializer
