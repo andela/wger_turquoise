@@ -10,17 +10,29 @@
 #
 
 
-FROM wger/base
+FROM ubuntu:16.04
 
 MAINTAINER Roland Geider <roland@geider.net>
 EXPOSE 8000
+
+# Install dependencies
+RUN apt-get update &&\
+    apt-get install -y nodejs nodejs-legacy npm git \
+        python-virtualenv python3-dev \
+        libjpeg8-dev zlib1g-dev libwebp-dev \
+        sudo
+
+# Add wger user
+RUN adduser wger --disabled-password --gecos ""
+RUN echo "wger ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/wger
+
 
 # Install dependencies
 RUN apt-get install -y vim tmux sqlite3
 
 # Set up the application
 USER wger
-RUN git clone https://github.com/wger-project/wger.git /home/wger/src
+RUN git clone https://github.com/andela/wger_turquoise.git /home/wger/src
 
 WORKDIR /home/wger/src
 RUN virtualenv --python python3 /home/wger/venv
