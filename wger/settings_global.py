@@ -16,6 +16,7 @@
 
 import re
 import sys
+import os
 
 '''
 This file contains the global settings that don't usually need to be changed.
@@ -370,3 +371,6 @@ WGER_SETTINGS = {
     'EMAIL_FROM': 'wger Workout Manager <wger@example.com>',
     'TWITTER': False
 }
+
+STATICFILES_DIR=[os.path.join(BASE_DIR,"static"),
+os.path.join(BASE_DIR,"wger","static"),]
