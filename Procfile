@@ -1,2 +1,2 @@
-web: ./start.sh;gunicorn wger.wsgi --log-file
+web: ./start.sh;gunicorn wger.wsgi
 
