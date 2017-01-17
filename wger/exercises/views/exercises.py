@@ -17,7 +17,6 @@ import six
 import logging
 import uuid
 
-from django.contrib.auth.models import User
 from django.core import mail
 
 from django.shortcuts import render, get_object_or_404
