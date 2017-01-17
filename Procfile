@@ -1,1 +1,1 @@
-web: ./start.sh;gunicorn wger.wsgi
+web: gunicorn wger.wsgi
