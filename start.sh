@@ -3,4 +3,3 @@
  invoke create_settings  --settings-path ./settings.py  --database-path ./wger/database.sqlite
 
 
-
