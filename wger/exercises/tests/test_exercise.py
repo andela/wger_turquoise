@@ -359,7 +359,7 @@ class ExercisesTestCase(WorkoutManagerTestCase):
 
         # 1 hit, "Very cool exercise"
         response = self.client.get(reverse('exercise-search'),
-                                   {'term': 'cool'})
+                                   {'term': 'another'})
         self.assertEqual(response.status_code, 200)
         result = json.loads(response.content.decode('utf8'))
         self.assertEqual(len(result), 1)
