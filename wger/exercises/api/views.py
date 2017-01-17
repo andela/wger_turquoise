@@ -91,7 +91,7 @@ def search(request):
     if q:
         languages = load_item_languages(LanguageConfig.SHOW_ITEM_EXERCISES,
                                         language_code=request.GET.get('language', None))
-        exercises = (Exercise.objects.filter(name__icontains=q)
+        exercises = (Exercise.objects.filter(category__name__icontains=q)
                      .filter(language__in=languages)
                      .filter(status=Exercise.STATUS_ACCEPTED)
                      .order_by('category__name', 'name')
