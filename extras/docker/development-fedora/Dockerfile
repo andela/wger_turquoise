@@ -25,7 +25,7 @@ EXPOSE 8000
 
 # Set up the application
 USER wger
-RUN git clone https://github.com/wger-project/wger.git /home/wger/src
+RUN git clone https://github.com/andela/wger_turquoise.git /home/wger/src
 
 WORKDIR /home/wger/src
 RUN virtualenv --python python3 /home/wger/venv
@@ -50,8 +50,8 @@ RUN rm -r node_modules \
     && npm install \
     && mkdir ~/media \
     && sed -i "/^MEDIA_ROOT/c\MEDIA_ROOT='\/home\/wger\/media'" settings.py \
-    && . /home/wger/venv/bin/activate \
-    && python manage.py download-exercise-images
+    && . /home/wger/venv/bin/activate 
+#    && python manage.py download-exercise-images
 
 
 CMD ["/bin/bash"]
