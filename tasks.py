@@ -95,7 +95,7 @@ def bootstrap_wger(context,
     if not database_exists():
         print('*** Database does not exist, creating one now')
         migrate_db(context, settings_path=settings_path)
-        load_fixtures(context, settings_path=settings_path)
+        #load_fixtures(context, settings_path=settings_path)
         create_or_reset_admin(context, settings_path=settings_path)
 
     # Download JS libraries with bower
