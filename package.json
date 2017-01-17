@@ -1,13 +1,11 @@
 {
-  "name": "wger_tourq",
+  "name": "wger",
   "version": "1.8.0",
   "description": "Self hosted FLOSS fitness/workout and weight tracker",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "postinstall":"npm i && bower install",
-    "install":"npm i ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
