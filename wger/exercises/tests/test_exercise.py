@@ -18,6 +18,7 @@ from django.core import mail
 from django.core.cache import cache
 from django.core.urlresolvers import reverse
 
+from wger.core.tests import api_base_test
 from wger.core.tests.base_testcase import (
     STATUS_CODES_FAIL,
     WorkoutManagerTestCase,
@@ -531,3 +532,17 @@ class WorkoutCacheTestCase(WorkoutManagerTestCase):
 #             ],
 #             "name": "foobar",
 #             "status": "5"}
+
+class ExerciseApiTestCase(api_base_test.ApiGetTestCase, api_base_test.ApiBaseTestCase,
+                          WorkoutManagerTestCase):
+    url_resource_name = 'exercise-detail'
+    pk = 1
+    resource = Exercise
+    private_resource = False
+
+    def get_resource_name(self):
+        '''
+        Returns the name of the resource. The default is the name of the model
+        class used in lower letters
+        '''
+        return self.url_resource_name.lower()
