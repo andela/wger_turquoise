@@ -242,9 +242,9 @@ def load_fixtures(context, settings_path=None):
     call_command("loaddata", path + "groups.json")
     call_command("loaddata", path + "users.json")
     call_command("loaddata", path + "licenses.json")
-    call_command("loaddata", path + "days_of_week.json")
-    call_command("loaddata", path + "setting_repetition_units.json")
-    call_command("loaddata", path + "setting_weight_units.json")
+    # call_command("loaddata", path + "days_of_week.json")
+    # call_command("loaddata", path + "setting_repetition_units.json")
+    # call_command("loaddata", path + "setting_weight_units.json")
 
     # Config
     path = os.path.join(current_dir, 'wger', 'config', 'fixtures/')
@@ -262,16 +262,16 @@ def load_fixtures(context, settings_path=None):
     call_command("loaddata", path + "exercises.json")
 
     # Nutrition
-    path = os.path.join(current_dir, 'wger', 'nutrition', 'fixtures/')
-    call_command("loaddata", path + "ingredients.json")
-    call_command("loaddata", path + "weight_units.json")
-    call_command("loaddata", path + "ingredient_units.json")
+    # path = os.path.join(current_dir, 'wger', 'nutrition', 'fixtures/')
+    # call_command("loaddata", path + "ingredients.json")
+    # call_command("loaddata", path + "weight_units.json")
+    # call_command("loaddata", path + "ingredient_units.json")
 
     # Gym
-    path = os.path.join(current_dir, 'wger', 'gym', 'fixtures/')
-    call_command("loaddata", path + "gym.json")
-    call_command("loaddata", path + "gym-config.json")
-    call_command("loaddata", path + "gym-adminconfig.json")
+    # path = os.path.join(current_dir, 'wger', 'gym', 'fixtures/')
+    # call_command("loaddata", path + "gym.json")
+    # call_command("loaddata", path + "gym-config.json")
+    # call_command("loaddata", path + "gym-adminconfig.json")
 
 
 @task
