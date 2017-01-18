@@ -372,5 +372,5 @@ WGER_SETTINGS = {
     'TWITTER': False
 }
 
-STATICFILES_DIR=[os.path.join(BASE_DIR,"static"),
+STATICFILES_DIRS=[os.path.join(BASE_DIR,"static"),
                 os.path.join(BASE_DIR,"wger","core","static"),]
