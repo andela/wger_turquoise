@@ -373,4 +373,4 @@ WGER_SETTINGS = {
 }
 
 STATICFILES_DIR=[os.path.join(BASE_DIR,"static"),
-os.path.join(BASE_DIR,"wger","static"),]
+                os.path.join(BASE_DIR,"wger","core","static"),]
