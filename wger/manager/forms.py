@@ -94,9 +94,10 @@ class SetForm(ModelForm):
     # https://code.djangoproject.com/ticket/9321
     def __init__(self, *args, **kwargs):
         super(SetForm, self).__init__(*args, **kwargs)
-        self.fields['exercises'].help_text = _('You can search for more than one exercise based on body part: eg.'
-                                                ' Arms, Legs, Abs, Chest, Back, Shoulders, or Calves. '
-                                               'They will be grouped together for a superset.')
+        self.fields['exercises'].help_text = _(
+            'You can search for more than one exercise based on'
+            ' body part: eg. Arms, Legs, Abs, Chest, Back, Shoulders,'
+            ' or Calves. They will be grouped together for a superset.')
 
 
 class SetFormMobile(ModelForm):
@@ -120,9 +121,10 @@ class SetFormMobile(ModelForm):
     # https://code.djangoproject.com/ticket/9321
     def __init__(self, *args, **kwargs):
         super(SetFormMobile, self).__init__(*args, **kwargs)
-        self.fields['exercise_list'].help_text = _('You can search for more than one exercise based on body part: eg.'
-                                                    ' Arms, Legs, Abs, Chest, Back, Shoulders, or Calves. '
-                                                   'They will be grouped together for a superset.')
+        self.fields['exercise_list'].help_text = _(
+            'You can search for more than one exercise'
+            ' based on body part: eg. Arms, Legs, Abs, Chest, Back, Shoulders,'
+            ' or Calves. They will be grouped together for a superset.')
 
 
 class SettingForm(ModelForm):
