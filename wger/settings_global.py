@@ -311,7 +311,7 @@ THUMBNAIL_ALIASES = {
 #
 # Django compressor
 #
-STATIC_ROOT = 'staticfiles'
+STATIC_ROOT = ''
 STATIC_URL = '/static/'
 
 # The default is not DEBUG, override if needed
@@ -371,6 +371,3 @@ WGER_SETTINGS = {
     'EMAIL_FROM': 'wger Workout Manager <wger@example.com>',
     'TWITTER': False
 }
-
-STATICFILES_DIRS=[os.path.join(BASE_DIR,"static"),
-                os.path.join(BASE_DIR,"wger","core","static"),]
