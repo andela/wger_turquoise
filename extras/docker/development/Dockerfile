@@ -32,7 +32,7 @@ RUN apt-get install -y vim tmux sqlite3
 
 # Set up the application
 USER wger
-RUN git clone https://github.com/andela/wger_turquoise.git /home/wger/src
+RUN git clone -b develop https://github.com/andela/wger_turquoise.git /home/wger/src
 
 WORKDIR /home/wger/src
 RUN virtualenv --python python3 /home/wger/venv
