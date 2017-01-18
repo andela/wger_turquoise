@@ -1,2 +1,6 @@
-[run]
-omit = *migrations*
+[report]
+omit =
+    *migrations*
+    *tests*
+    *test_*
+    */management/commands/*
