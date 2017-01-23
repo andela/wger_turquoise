@@ -46,6 +46,9 @@ install:
   - if [[ "$DB" = "sqlite" ]]; then invoke create_settings; fi
   - if [[ "$DB" = "postgresql" ]]; then invoke create_settings --database-type postgresql; fi
 
+  # codecov report
+  - pip install codecov
+
 # Create test databases
 before_script:
   - if [[ "$DB" = "postgresq" ]]; then psql -c 'DROP DATABASE IF EXISTS test_wger;' -U postgres; fi
@@ -65,3 +68,4 @@ script:
 
   # Code coverage
   - coverage report
+  - codecov
