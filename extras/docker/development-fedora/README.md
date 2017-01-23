@@ -15,7 +15,7 @@ This docker image contains an instance of the application running with django's
 development server using a sqlite database. It can be used to quickly setup a
 development instance (vim and tmux are already installed):
 
-```docker run -ti --name wger.devel-fedora --publish 8000:8000 wger/devel-fedora```
+```docker run -ti  --publish 8000:8000 mkamau/wger-turquoise-devel```
 
 Then, *within the docker image*, activate the virtualenv
 
@@ -46,8 +46,7 @@ Sources
 
 All the code and the content is freely available:
 
-* Main repository: https://github.com/wger-project/wger
-* Mirror: https://bitbucket.org/rolandgeider/wger
+* Main repository: https://github.com/andela/wger_turquoise
 
 Licence
 -------
