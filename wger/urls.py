@@ -134,6 +134,11 @@ sitemaps = {'exercises': ExercisesSitemap,
 # The actual URLs
 #
 urlpatterns = i18n_patterns(
+    url(r'^$', core_views.home, name='home'),
+    url(r'^login/$', auth_views.login, name='login'),
+    url(r'^logout/$', auth_views.logout, name='logout'),
+    url(r'^oauth/', include('social.apps.django_app.urls', namespace='social')),  # <--
+    url(r'^admin/', admin.site.urls),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include('wger.core.urls', namespace='core', app_name='core')),
     url(r'workout/', include('wger.manager.urls', namespace='manager')),
@@ -150,6 +155,9 @@ urlpatterns = i18n_patterns(
         name='sitemap')
 )
 
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+LOGIN_REDIRECT_URL = 'home'
 #
 # URLs without language prefix
 #
