@@ -4,3 +4,5 @@ omit =
     *tests*
     *test_*
     */management/commands/*
+    docker-compose.yml
+    Dockerfile
