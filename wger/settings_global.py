@@ -42,7 +42,9 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'social.apps.django_app.default',
+
+    # Social auth 
+    'social_django',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
 
@@ -126,13 +128,14 @@ MIDDLEWARE_CLASSES = (
     # Django mobile
     'django_mobile.middleware.MobileDetectionMiddleware',
     'django_mobile.middleware.SetFlavourMiddleware',
-    'social.apps.django_app.middleware.SocialAuthExceptionMiddleware',
+    # Social Auth middleware
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 )
 
 AUTHENTICATION_BACKENDS = (
-    'social.backends.facebook.FacebookOAuth2',
-    'social.backends.google.GoogleOAuth2',
-    'social.backends.twitter.TwitterOAuth',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
     'django.contrib.auth.backends.ModelBackend',
     'wger.utils.helpers.EmailAuthBackend'
 )
@@ -153,13 +156,16 @@ TEMPLATES = [
                 'django.template.context_processors.static',
                 'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
-                'social.apps.django_app.context_processors.backends',
-                'social.apps.django_app.context_processors.login_redirect',
+                
                 # Django mobile
                 'django_mobile.context_processors.flavour',
 
                 # Breadcrumbs
-                'django.template.context_processors.request'
+                'django.template.context_processors.request',
+
+                #social auth
+                'social.apps.django_app.context_processors.backends',
+                'social.apps.django_app.context_processors.login_redirect',
             ],
             'loaders': [
                 # Django mobile
@@ -375,3 +381,16 @@ WGER_SETTINGS = {
     'EMAIL_FROM': 'wger Workout Manager <wger@example.com>',
     'TWITTER': False
 }
+
+# Facebook configuration
+SOCIAL_AUTH_FACEBOOK_KEY = "1191682894243603"
+SOCIAL_AUTH_FACEBOOK_SECRET = "8b9b6bc6c17ecfd3504c6d6a88db7bf3"
+
+# Twitter configuration
+SOCIAL_AUTH_TWITTER_KEY = "YcUKaUjOG4qfPwXm8oB6rnsYJ" #os.environ['TWITTER_KEY']
+SOCIAL_AUTH_TWITTER_SECRET = "AedIP0ZnoUMh7Y4ScAO9QELGdZWgxyVRl1Wync5QnziPfDMBGC" #os.environ['TWITTER_SECRET']
+
+# Google configuration
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = "118887672915-229jigq4rrn84nh6f0jrvt8t4eq4ps98.apps.googleusercontent.com"
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = "cQqlUTRfcosf4vneBclXZlM3"
+

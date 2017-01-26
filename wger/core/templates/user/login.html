@@ -13,6 +13,12 @@
       class="form-horizontal">
     {% trans 'Login' as submit_text %}
     {% render_form_fields form submit_text %}
+    <!-- Social Login Buttons -->
+    <div id="links" style="padding-left:190px;text-align:center;">
+        <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-danger bt-sm" >Login with Google</a>
+        <a href="{% url 'social:begin' 'facebook' %}" class="btn btn-primary bt-sm">Login with Facebook</a>
+        <a href="{% url 'social:begin' 'twitter' %}" class="btn btn-info bt-sm">Login with Twitter</a> 
+    </div>  
 </form>
 {% endblock %}
 
