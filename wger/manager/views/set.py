@@ -68,7 +68,7 @@ def create(request, day_pk):
     # The difference is that the mobile form doesn't use the autocompleter for
     # exercises, but 2 dropdowns, one to filter by category and one to select
     # the exercises themselves.
-    if request.flavour == 'mobile':
+    if request.flavour == 'mobile' or request.session.get('flavour', None) == 'mobile':
         form_class = SetFormMobile
     else:
         form_class = SetForm
